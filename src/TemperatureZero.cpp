@@ -110,6 +110,16 @@ void TemperatureZero::init() {
   wakeup();
 }
 
+void TemperatureZero::initFast() {
+#ifdef TZ_WITH_DEBUG_CODE
+  _debug = false;
+#endif
+  _averaging = TZ_AVERAGING_16; // on 48Mhz takes approx 10 ms
+  _isUserCalEnabled = false;
+  getFactoryCalibration();
+  wakeup();
+}
+
 
 // After sleeping, the temperature sensor seems disabled. So, let's re-enable it.
 void TemperatureZero::wakeup() {
