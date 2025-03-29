@@ -28,6 +28,7 @@ class TemperatureZero
   public:
     TemperatureZero();
     void init();
+    void initFast();
     void wakeup();
     void disable();
     void setAveraging(uint8_t averaging);
